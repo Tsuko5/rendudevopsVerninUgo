@@ -4,8 +4,6 @@ LABEL maintainer="Ugo Governin"
 LABEL version="1.0.0"
 
 ENV MONGO_INITDB_DATABASE=blog_db
-ENV MONGO_INITDB_ROOT_USERNAME=ugovernin
-ENV MONGO_INITDB_ROOT_PASSWORD=Tsuko
 
 RUN useradd -m -u 999 mongodb-user || true
 

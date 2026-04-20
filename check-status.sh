@@ -1,9 +1,15 @@
 #!/bin/bash
 
 CONTAINER_NAME="${1:-TsukoYnov25}"
-# Note securite: en prod, definir MONGO_USER et MONGO_PASS via variables d'environnement.
-USER="${MONGO_USER:-ugovernin}"
-PASS="${MONGO_PASS:-Tsuko}"
+
+if [ -f .env ]; then
+  set -a
+  source .env
+  set +a
+fi
+
+USER="${MONGO_USER:-${MONGO_INITDB_ROOT_USERNAME:-ugovernin}}"
+PASS="${MONGO_PASS:-${MONGO_INITDB_ROOT_PASSWORD:-Tsuko}}"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
